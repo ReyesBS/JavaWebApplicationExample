@@ -25,10 +25,10 @@ public class LoginRequiredFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
 
-		if (request.getSession().getAttribute("name") != null) {
+		if (request.getSession().getAttribute("nombre") != null) {
 			chain.doFilter(servletRequest, servletResponse);
 		} else {
-			request.getRequestDispatcher("/login.do").forward(servletRequest,
+			request.getRequestDispatcher("/myServlet").forward(servletRequest,
 					servletResponse);
 		}
 	}
